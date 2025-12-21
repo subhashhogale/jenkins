@@ -9,10 +9,9 @@ public class GoogleTest {
 
     @Test
     public void openGoogle() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
+    
 
-        WebDriver driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
 
         System.out.println("Title is: " + driver.getTitle());
