@@ -2,26 +2,28 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Build') {
+        stage('Clean ws') {
             steps {
-                bat 'mvn clean install'
+                echo 'Cleaning workspace'
             }
         }
 
-        stage('Run Tests') {
+        stage('Init') {
             steps {
-                bat 'mvn test'
+                echo 'Initialization'
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Automation executed successfully'
+        stage('Choice') {
+            steps {
+                echo 'Running choice step'
+            }
         }
-        failure {
-            echo 'Check failure logs'
+
+        stage('Finish') {
+            steps {
+                echo 'Finishing'
+            }
         }
     }
 }
