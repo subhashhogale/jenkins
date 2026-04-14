@@ -1,22 +1,27 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'Java'
-        maven 'Maven'
-    }
-
     stages {
-        stage('Checkout') {
+
+        stage('Build') {
             steps {
-                echo 'Code checked out from GitHub'
+                bat 'mvn clean install'
             }
         }
 
-        stage('Run Selenium Tests') {
+        stage('Run Tests') {
             steps {
-                bat 'mvn clean test'
+                bat 'mvn test'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Automation executed successfully'
+        }
+        failure {
+            echo 'Check failure logs'
         }
     }
 }
