@@ -15,7 +15,7 @@ public class GoogleTest {
         driver.get("https://www.google.com");
 
         System.out.println("Title is: " + driver.getTitle());
-          System.out.println("subhashhogalesangavi");
+          System.out.println("subhashhogalesangavi2");
         driver.quit();
     }
 }
